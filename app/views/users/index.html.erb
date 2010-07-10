@@ -1,0 +1,29 @@
+<% title "Users" %>
+
+<% form_tag remove_many_users_path, :method => :delete, :id => "remove_many_users_form" do %>
+ 
+<p>
+  <%= submit_tag "Apagar Usuários", :confirm => "Tem Certeza?"%>
+</p>
+
+<table>
+  <tr>
+    <th><%= check_box_tag "toggleSelect_all", "", false, :onclick => "toggleSelectAll('remove_many_users_form');" %></th>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= check_box_tag "user_ids[]", user.id %> </td>
+      <td><%=h user.name %></td>
+      <td><%=h user.email %></td>
+      <td><%= link_to "Show", user %></td>
+      <td><%= link_to "Edit", edit_user_path(user) %></td>
+      <td><%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%end%>
+
+<p><%= link_to "New User", new_user_path %></p>
