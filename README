@@ -1,1 +1,5 @@
-TODO add readme content
+Exemplo de app para remover mais de um registro por ver.
+
+Para popular o bando rode o comando 
+rake db:populate
+
